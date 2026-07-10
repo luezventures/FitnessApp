@@ -26,7 +26,7 @@ function Home() {
         <p className="info-text">
           Eine Fitness-App, mit allen perönlichen Trainingsbereichen:
           Gym, Laufen, Yoga und was auch immer du willst!
-           Alles in einer App! Kein Abo, keine 20 Apps.
+           Alles in einer App und Open-Source so lange wie möglich.
         </p>
       </div>
 
