@@ -78,14 +78,24 @@ function SatzLogger() {
 
   // Gruppe anklicken
   function waehleGruppe(gruppe) {
-    setGewaehlteGruppe(gruppe)
-    setGewaehlteUebung(null)  // Übung zurücksetzen
+  // Ist die Gruppe schon gewählt? Dann abwählen.
+  if (gewaehlteGruppe === gruppe) {
+    setGewaehlteGruppe(null)
+    setGewaehlteUebung(null)
+    return
   }
+  // Sonst: neue Gruppe wählen
+  setGewaehlteGruppe(gruppe)
+  setGewaehlteUebung(null)
+}
 
-  // Übung anklicken
   function waehleUebung(uebung) {
-    setGewaehlteUebung(uebung)
+  if (gewaehlteUebung === uebung) {
+    setGewaehlteUebung(null)
+    return
   }
+  setGewaehlteUebung(uebung)
+}
 
   // Satz speichern
   function speichereSatz() {
