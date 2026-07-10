@@ -1,6 +1,8 @@
 /* ============================================
    SATZLOGGER.CSS
-   Nutzt die Variablen aus index.css
+   
+   NEU: Badges (Satzzahlen), Mobile-Fix für
+   die Eingabefelder
    ============================================ */
 
 .logger {
@@ -24,6 +26,23 @@
   margin-bottom: 10px;
 }
 
+/* === BADGE (Satzzahl) === */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  background: var(--accent);
+  border-radius: 9px;
+  color: white;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+
 /* === GRUPPEN-BUTTONS === */
 
 .gruppen-grid {
@@ -33,6 +52,7 @@
 }
 
 .gruppe-btn {
+  position: relative;
   padding: 16px 8px;
   background: var(--glass-bg);
   border: 0.5px solid var(--glass-border);
@@ -56,6 +76,13 @@
   color: var(--accent);
 }
 
+/* Badge in der Ecke des Gruppen-Buttons */
+.gruppe-btn .badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+}
+
 /* === ÜBUNGS-BUTTONS === */
 
 .uebungen-liste {
@@ -65,6 +92,10 @@
 }
 
 .uebung-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
   padding: 14px 16px;
   background: var(--glass-bg);
   border: 0.5px solid var(--glass-border);
@@ -125,6 +156,9 @@
   flex-direction: column;
   gap: 6px;
   margin-bottom: 16px;
+
+  /* MOBILE-FIX: erlaubt dem Feld zu schrumpfen,
+     statt über den Rand zu quellen */
   min-width: 0;
 }
 
@@ -139,8 +173,10 @@
 }
 
 .eingabe-feld input {
-  padding: 12px 14px;
+  /* MOBILE-FIX: exakt so breit wie der Container */
   width: 100%;
+
+  padding: 12px 14px;
   background: rgba(255, 255, 255, 0.03);
   border: 0.5px solid var(--glass-border);
   border-radius: 10px;
@@ -160,7 +196,6 @@
   color: #334155;
 }
 
-/* Pfeilchen bei number-inputs ausblenden */
 .eingabe-feld input[type="number"]::-webkit-inner-spin-button,
 .eingabe-feld input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -347,4 +382,50 @@
     font-size: 11px;
     padding: 14px 4px;
   }
+}
+
+/* === EINGABE-BEREICH (klappt unter der Übung auf) === */
+
+.eingabe-bereich {
+  padding: 12px 0 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  /* Sanftes Aufklappen */
+  animation: aufklappen 0.2s ease-out;
+}
+
+@keyframes aufklappen {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Aktive Übung hebt sich stärker ab */
+.uebung-btn.aktiv {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Fokus-Ring auf Buttons kontrollieren */
+.uebung-btn:focus-visible,
+.gruppe-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.uebung-btn:focus,
+.gruppe-btn:focus {
+  outline: none;
+}
+
+/* Buttons füllen ihren Wrapper aus */
+.uebung-btn {
+  width: 100%;
 }

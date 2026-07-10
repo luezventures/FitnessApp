@@ -1,0 +1,132 @@
+/* ============================================
+   TAGESUEBERSICHT.CSS
+   ============================================ */
+
+.uebersicht {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  border-top: 0.5px solid var(--glass-highlight);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 24px;
+}
+
+/* === KOPFZEILE === */
+
+.uebersicht-kopf {
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.06);
+}
+
+.uebersicht-titel {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 8px;
+}
+
+.uebersicht-stats {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+
+.stat-zahl {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.stat-trenner {
+  color: var(--text-muted);
+  margin: 0 4px;
+}
+
+/* === ÜBUNGS-BLÖCKE === */
+
+.uebersicht-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.uebersicht-uebung {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.uebung-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.uebung-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.uebung-volumen {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* === MINI-SÄTZE === */
+
+.uebung-saetze {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.mini-satz {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.mini-nummer {
+  width: 16px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #334155;
+  flex-shrink: 0;
+}
+
+.mini-werte {
+  flex: 1;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-subtle);
+}
+
+.mini-rpe {
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
