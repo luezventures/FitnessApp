@@ -2,7 +2,7 @@
 
 Eine Open-Source-Fitness-App, die ich Stück für Stück selbst baue – mit den Tools, auf die ich wirklich Bock habe.
 
-**Live:** https://Luis220058.github.io/FitnessApp/
+**Live:** https://luezventures.github.io/FitnessApp/
 
 > **Status:** früh. Das Grundgerüst steht und geht bei jedem Push automatisch live. Die eigentlichen Features kommen jetzt eins nach dem anderen dazu.
 
@@ -34,7 +34,7 @@ Noch nichts davon fertig – das ist die Ideenliste, aus der nach und nach echte
 Voraussetzung: [Node.js](https://nodejs.org) (LTS-Version).
 
 ```bash
-git clone https://github.com/Luis220058/FitnessApp.git
+git clone https://github.com/luezventures/FitnessApp.git
 cd FitnessApp
 npm install
 npm run dev
@@ -51,10 +51,7 @@ Weitere Befehle:
 
 Läuft automatisch: Jeder Push auf `main` baut die App per GitHub Actions und stellt sie auf GitHub Pages live. Kein manueller Schritt nötig.
 
-## Mitmachen
-
-Das ist in erster Linie ein persönliches Lernprojekt, aber Vorschläge und Pull Requests sind willkommen. Wenn dir was auffällt oder du eine Idee hast: einfach ein Issue aufmachen.
 
 ## Lizenz
 
-MIT – mach damit, was du willst.
+GNU AFFERO GENERAL PUBLIC LICENSE

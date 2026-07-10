@@ -18,7 +18,7 @@ function App() {
       {/* Status-Badge: zeigt "aktiv in Entwicklung" */}
       <div className="status-badge">
         <span className="pulse-dot"></span>
-        In Entwicklung — Open Source
+        Deine All-in-One Fitness-App
       </div>
 
       {/* Hero: Der Claim, groß und zentriert */}
@@ -27,8 +27,9 @@ function App() {
           Do it anyway<span className="claim-dot">.</span>
         </h1>
         <p className="subtitle">
-          Eine Fitness-App, die Gym und Laufen in einen Plan bringt.
-          Kein Abo. Kein Ballast. Wird gerade gebaut.
+          Eine Fitness-App, die Gym, Laufen, Yoga, etc. in einen Plan bringt.
+          Kein Abo. Keine 20 Apps!
+          In building...
         </p>
       </div>
 
@@ -61,7 +62,7 @@ function App() {
         <p className="footer-text">
           Open Source auf{' '}
           <a
-            href="https://github.com/Luis220058/FitnessApp"
+            href="https://github.com/luezventures/FitnessApp"
             target="_blank"
             rel="noopener noreferrer"
           >
