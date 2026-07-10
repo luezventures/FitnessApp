@@ -208,8 +208,6 @@ function SatzLogger() {
   return (
     <div className="logger">
 
-      <Tagesuebersicht saetze={alleHeutigenSaetze} onLoeschen={loescheSatz} />
-
 
       {/* === GRUPPEN === */}
       <div className="section">
@@ -470,6 +468,8 @@ function SatzLogger() {
           </div>
         </div>
       )}
+      
+      <Tagesuebersicht saetze={alleHeutigenSaetze} onLoeschen={loescheSatz} />
 
     </div>
   )

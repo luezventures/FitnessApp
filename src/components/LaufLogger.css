@@ -1,0 +1,264 @@
+/* ============================================
+   LAUFLOGGER.CSS
+   ============================================ */
+
+.lauf-logger {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 8px 16px 60px;
+}
+
+.section {
+  margin-bottom: 24px;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 10px;
+}
+
+/* === EINGABE-KARTE === */
+
+.lauf-karte {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  border-top: 0.5px solid var(--glass-highlight);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.lauf-feld {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.lauf-feld label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.lauf-feld input,
+.lauf-select {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.lauf-feld input:focus,
+.lauf-select:focus {
+  border-color: var(--accent);
+}
+
+.lauf-feld input::placeholder {
+  color: #334155;
+}
+
+.lauf-feld input[type="number"]::-webkit-inner-spin-button,
+.lauf-feld input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Dropdown-Pfeil eigenes Styling */
+.lauf-select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2364748b' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.lauf-select option {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+/* === ZEIT-REIHE === */
+
+.zeit-reihe {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.zeit-reihe input {
+  width: 100%;
+  min-width: 0;
+  text-align: center;
+}
+
+.zeit-trenner {
+  color: var(--text-muted);
+  font-size: 18px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* === VORSCHAU (Pace & km/h) === */
+
+.vorschau {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  padding: 16px;
+  margin-bottom: 16px;
+  background: rgba(79, 124, 255, 0.06);
+  border: 0.5px solid rgba(79, 124, 255, 0.2);
+  border-radius: 12px;
+}
+
+.vorschau-item {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.vorschau-wert {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+}
+
+.vorschau-label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.vorschau-trenner {
+  width: 0.5px;
+  height: 24px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* === SPEICHERN-BUTTON === */
+
+.speichern-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.speichern-btn:hover {
+  background: var(--accent-light);
+}
+
+.speichern-btn:active {
+  transform: scale(0.98);
+}
+
+/* === LÄUFE-LISTE === */
+
+.laeufe-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.lauf-zeile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  background: var(--glass-bg);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 12px;
+}
+
+.lauf-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.lauf-haupt {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.lauf-distanz {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.lauf-zeit {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-subtle);
+}
+
+.lauf-meta {
+  margin-top: 3px;
+}
+
+.lauf-art {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.lauf-pace {
+  display: flex;
+  align-items: baseline;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.pace-wert {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.pace-label {
+  font-size: 10px;
+  color: var(--text-muted);
+}
+
+.loeschen-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #334155;
+  font-size: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.loeschen-btn:hover {
+  color: var(--danger);
+}

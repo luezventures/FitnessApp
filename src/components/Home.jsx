@@ -17,14 +17,14 @@ function Home() {
       {/* Status: zeigt, dass hier aktiv gebaut wird */}
       <div className="status-badge">
         <span className="pulse-dot"></span>
-        Deine All-in-One Fitness-App!
+        Deine All-in-One Sport-App!
       </div>
 
       {/* Was ist das? */}
       <div className="info-karte">
         <h2 className="info-titel">Was ist das Ziel?</h2>
         <p className="info-text">
-          Eine Fitness-App, mit allen perönlichen Trainingsbereichen:
+          Eine Sport-App, mit allen perönlichen Trainingsbereichen:
           Gym, Laufen, Yoga und was auch immer du willst!
            Alles in einer App und Open-Source so lange wie möglich.
         </p>
