@@ -125,6 +125,7 @@
   flex-direction: column;
   gap: 6px;
   margin-bottom: 16px;
+  min-width: 0;
 }
 
 .eingabe-reihe .eingabe-feld {
@@ -139,6 +140,7 @@
 
 .eingabe-feld input {
   padding: 12px 14px;
+  width: 100%;
   background: rgba(255, 255, 255, 0.03);
   border: 0.5px solid var(--glass-border);
   border-radius: 10px;
