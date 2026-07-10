@@ -44,20 +44,20 @@ function Home() {
             </div>
           </div>
           <div className="feature">
-            <span className="feature-status">○</span>
+            <span className="feature-status">✓</span>
             <div>
-              <div className="feature-name">Trainingsplan</div>
+              <div className="feature-name">Laufen</div>
               <div className="feature-detail">
-                Workouts erstellen und Tagen zuweisen
+                Läufe tracken, mit dem Gym-Plan verzahnt
               </div>
             </div>
           </div>
           <div className="feature">
             <span className="feature-status">○</span>
             <div>
-              <div className="feature-name">Laufen</div>
+              <div className="feature-name">Trainingsplan</div>
               <div className="feature-detail">
-                Läufe tracken, mit dem Gym-Plan verzahnt
+                Persönlichen Trainingsplan erstellen und verfolgen
               </div>
             </div>
           </div>
