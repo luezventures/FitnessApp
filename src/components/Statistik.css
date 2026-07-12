@@ -108,6 +108,7 @@
 .kachel-dot.blau { background: var(--accent); }
 .kachel-dot.gruen { background: var(--success); }
 .kachel-dot.amber { background: var(--warning); }
+.kachel-dot.lila { background: var(--bike); }
 
 .kachel-wert {
   font-size: 32px;
@@ -127,6 +128,7 @@
 .kachel-wert.blau { color: var(--accent); }
 .kachel-wert.gruen { color: var(--success); }
 .kachel-wert.amber { color: var(--warning); }
+.kachel-wert.lila { color: var(--bike); }
 
 .kachel-sub {
   font-size: 12px;
@@ -215,3 +217,4 @@
 
 .punkt.orange { background: var(--warning); }
 .punkt.gruen { background: var(--success); }
+.punkt.lila { background: var(--bike); }

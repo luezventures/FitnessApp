@@ -1,30 +1,31 @@
 /* ============================================
-   LAUFLOGGER.JSX — Läufe eintragen
-   
-   Gleiche Bausteine wie der Satz-Logger:
+   RADFAHREN.JSX — Radtouren eintragen
+
+   Gleiche Bausteine wie der Lauf-Logger:
    - useLocalStorage zum Speichern
    - controlled inputs
-   - Liste der heutigen Läufe
-   
-   NEU: Berechnung von Pace und km/h aus
-   Distanz und Zeit.
+   - Liste der heutigen Touren
+
+   Anders als beim Laufen zeigen wir keine Pace
+   an, nur km/h — beim Radfahren ist die
+   Geschwindigkeit die gängige Kennzahl.
    ============================================ */
 
 import { useState } from 'react'
-import { LAUFARTEN } from '../data/laufarten'
+import { RADTOUREN } from '../data/radfahren'
 import { useLocalStorage } from '../hooks/useLocalStorage'
-import './LaufLogger.css'
+import './Radfahren.css'
 
-function LaufLogger() {
+function Radfahren() {
 
   /* ===== DATEN ===== */
-  const [laeufe, setLaeufe] = useLocalStorage('fitnessapp_laeufe', [])
+  const [fahrten, setFahrten] = useLocalStorage('fitnessapp_fahrten', [])
 
   const [distanz, setDistanz] = useState('')
   const [stunden, setStunden] = useState('')
   const [minuten, setMinuten] = useState('')
   const [sekunden, setSekunden] = useState('')
-  const [laufart, setLaufart] = useState(LAUFARTEN[0])
+  const [radtour, setRadtour] = useState(RADTOUREN[0])
 
 
   /* ===== ABGELEITETE DATEN ===== */
@@ -40,31 +41,16 @@ function LaufLogger() {
   }
 
   const heute = alsDatumString(new Date())
-  const heutigeLaeufe = laeufe.filter(lauf => lauf.datum === heute)
+  const heutigeFahrten = fahrten.filter(fahrt => fahrt.datum === heute)
 
 
-  /* ===== BERECHNUNGEN =====
-     Das Herz des Lauf-Loggers: aus Distanz und
-     Zeit die Pace und Geschwindigkeit ableiten. */
+  /* ===== BERECHNUNGEN ===== */
 
   // Alles in Sekunden umrechnen — einfacher zu rechnen
   function gesamtSekunden(h, m, s) {
     return (parseInt(h) || 0) * 3600
          + (parseInt(m) || 0) * 60
          + (parseInt(s) || 0)
-  }
-
-  // Pace = Zeit pro Kilometer, Format "5:30"
-  function berechnePace(km, sekundenGesamt) {
-    if (!km || km <= 0 || sekundenGesamt <= 0) return null
-
-    const sekProKm = sekundenGesamt / km
-    const min = Math.floor(sekProKm / 60)
-    const sek = Math.round(sekProKm % 60)
-
-    // Sekunden immer zweistellig: 5:07 statt 5:7
-    const sekStr = sek.toString().padStart(2, '0')
-    return `${min}:${sekStr}`
   }
 
   // Geschwindigkeit in km/h
@@ -79,27 +65,25 @@ function LaufLogger() {
   // Live-Vorschau, während man eintippt
   const aktuelleSekunden = gesamtSekunden(stunden, minuten, sekunden)
   const aktuelleDistanz = parseFloat(distanz.replace(',', '.'))  // Komma erlauben
-  const vorschauPace = berechnePace(aktuelleDistanz, aktuelleSekunden)
   const vorschauKmh = berechneKmh(aktuelleDistanz, aktuelleSekunden)
 
 
   /* ===== FUNKTIONEN ===== */
 
-  function speichereLauf() {
+  function speichereRide() {
     if (!aktuelleDistanz || aktuelleSekunden <= 0) return
 
-    const neuerLauf = {
+    const neuerRide = {
       id: Date.now(),
       distanz: aktuelleDistanz,
       sekunden: aktuelleSekunden,
-      laufart: laufart,
-      pace: berechnePace(aktuelleDistanz, aktuelleSekunden),
+      radtour: radtour,
       kmh: berechneKmh(aktuelleDistanz, aktuelleSekunden),
       datum: heute,
       zeitstempel: Date.now(),
     }
 
-    setLaeufe([neuerLauf, ...laeufe])
+    setFahrten([neuerRide, ...fahrten])
 
     // Felder leeren
     setDistanz('')
@@ -108,8 +92,8 @@ function LaufLogger() {
     setSekunden('')
   }
 
-  function loescheLauf(id) {
-    setLaeufe(laeufe.filter(lauf => lauf.id !== id))
+  function loescheRide(id) {
+    setFahrten(fahrten.filter(fahrt => fahrt.id !== id))
   }
 
   // Zeit schön formatieren für die Anzeige: "52:30" oder "1:05:12"
@@ -129,27 +113,27 @@ function LaufLogger() {
   /* ===== ANZEIGE ===== */
 
   return (
-    <div className="lauf-logger">
+    <div className="rad-logger">
 
       {/* Eingabe-Karte */}
-      <div className="lauf-karte">
+      <div className="rad-karte">
 
-        {/* Laufart als Dropdown */}
-        <div className="lauf-feld">
+        {/* Radtour als Dropdown */}
+        <div className="rad-feld">
           <label>Art</label>
           <select
-            value={laufart}
-            onChange={(e) => setLaufart(e.target.value)}
-            className="lauf-select"
+            value={radtour}
+            onChange={(e) => setRadtour(e.target.value)}
+            className="rad-select"
           >
-            {LAUFARTEN.map(art => (
-              <option key={art} value={art}>{art}</option>
+            {RADTOUREN.map(tour => (
+              <option key={tour} value={tour}>{tour}</option>
             ))}
           </select>
         </div>
 
         {/* Distanz */}
-        <div className="lauf-feld">
+        <div className="rad-feld">
           <label>Distanz (km)</label>
           <input
             type="text"
@@ -161,7 +145,7 @@ function LaufLogger() {
         </div>
 
         {/* Zeit: drei Felder */}
-        <div className="lauf-feld">
+        <div className="rad-feld">
           <label>Zeit</label>
           <div className="zeit-reihe">
             <input
@@ -190,14 +174,9 @@ function LaufLogger() {
           </div>
         </div>
 
-        {/* Live-Vorschau von Pace und km/h */}
-        {vorschauPace && (
+        {/* Live-Vorschau von km/h */}
+        {vorschauKmh && (
           <div className="vorschau">
-            <div className="vorschau-item">
-              <span className="vorschau-wert">{vorschauPace}</span>
-              <span className="vorschau-label">/km</span>
-            </div>
-            <div className="vorschau-trenner"></div>
             <div className="vorschau-item">
               <span className="vorschau-wert">{vorschauKmh}</span>
               <span className="vorschau-label">km/h</span>
@@ -205,42 +184,38 @@ function LaufLogger() {
           </div>
         )}
 
-        <button className="speichern-btn" onClick={speichereLauf}>
-          Lauf speichern
+        <button className="speichern-btn" onClick={speichereRide}>
+          Radfahren speichern
         </button>
 
       </div>
 
 
-      {/* Heutige Läufe */}
-      {heutigeLaeufe.length > 0 && (
+      {/* Heutige Rides */}
+      {heutigeFahrten.length > 0 && (
         <div className="section">
           <div className="section-label">
-            Heute — {heutigeLaeufe.length}{' '}
-            {heutigeLaeufe.length === 1 ? 'Lauf' : 'Läufe'}
+            Heute — {heutigeFahrten.length}{' '}
+            {heutigeFahrten.length === 1 ? 'Ride' : 'Rides'}
           </div>
-          <div className="laeufe-liste">
-            {heutigeLaeufe.map(lauf => (
-              <div key={lauf.id} className="lauf-zeile">
-                <div className="lauf-info">
-                  <div className="lauf-haupt">
-                    <span className="lauf-distanz">
-                      {lauf.distanz.toString().replace('.', ',')} km
+          <div className="ride-liste">
+            {heutigeFahrten.map(ride => (
+              <div key={ride.id} className="ride-zeile">
+                <div className="ride-info">
+                  <div className="ride-haupt">
+                    <span className="ride-distanz">
+                      {ride.distanz.toString().replace('.', ',')} km
                     </span>
-                    <span className="lauf-zeit">{formatiereZeit(lauf.sekunden)}</span>
+                    <span className="ride-zeit">{formatiereZeit(ride.sekunden)}</span>
                   </div>
-                  <div className="lauf-meta">
-                    <span className="lauf-art">{lauf.laufart}</span>
+                  <div className="ride-meta">
+                    <span className="ride-art">{ride.radtour}</span>
                   </div>
-                </div>
-                <div className="lauf-pace">
-                  <span className="pace-wert">{lauf.pace}</span>
-                  <span className="pace-label">/km</span>
                 </div>
                 <button
                   className="loeschen-btn"
-                  onClick={() => loescheLauf(lauf.id)}
-                  aria-label="Lauf löschen"
+                  onClick={() => loescheRide(ride.id)}
+                  aria-label="Ride löschen"
                 >
                   ×
                 </button>
@@ -254,4 +229,4 @@ function LaufLogger() {
   )
 }
 
-export default LaufLogger
+export default Radfahren

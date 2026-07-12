@@ -48,7 +48,17 @@ function SatzLogger() {
 
   /* ===== ABGELEITETE DATEN ===== */
 
-  const heute = new Date().toISOString().split('T')[0]
+  // Lokales Datum statt toISOString() (das ist UTC) — sonst bekommen
+  // Einträge kurz nach Mitternacht das Datum des Vortags und fallen
+  // in Statistik.jsx aus der aktuellen Woche raus.
+  function alsDatumString(date) {
+    const jahr = date.getFullYear()
+    const monat = (date.getMonth() + 1).toString().padStart(2, '0')
+    const tag = date.getDate().toString().padStart(2, '0')
+    return `${jahr}-${monat}-${tag}`
+  }
+
+  const heute = alsDatumString(new Date())
   const gruppenNamen = Object.keys(gruppen)
   const alleHeutigenSaetze = saetze.filter(satz => satz.datum === heute)
   const heutigeSaetze = alleHeutigenSaetze.filter(

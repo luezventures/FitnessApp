@@ -15,6 +15,7 @@ function Statistik() {
   /* ===== DATEN ===== */
   const [saetze] = useLocalStorage('fitnessapp_saetze', [])
   const [laeufe] = useLocalStorage('fitnessapp_laeufe', [])
+  const [radfahrten] = useLocalStorage('fitnessapp_fahrten', [])
 
   // Welche Woche wird angezeigt? 0 = diese Woche, -1 = letzte Woche, ...
   const [wochenOffset, setWochenOffset] = useState(0)
@@ -67,6 +68,8 @@ function Statistik() {
 
   const saetzeDieserWoche = saetze.filter(satz => wochenTage.includes(satz.datum))
   const laeufeDieserWoche = laeufe.filter(lauf => wochenTage.includes(lauf.datum))
+  const radfahrtenDieserWoche = radfahrten.filter(fahrt => wochenTage.includes(fahrt.datum))
+  
 
 
   /* ===== KENNZAHLEN BERECHNEN ===== */
@@ -79,6 +82,12 @@ function Statistik() {
   // Laufkilometer: Distanzen aufsummieren
   const laufKilometer = laeufeDieserWoche.reduce(
     (summe, lauf) => summe + lauf.distanz,
+    0
+  )
+
+  // Radkilometer: Distanzen aufsummieren
+  const radKilometer = radfahrtenDieserWoche.reduce(
+    (summe, fahrt) => summe + fahrt.distanz,
     0
   )
 
@@ -129,9 +138,10 @@ function Statistik() {
     function tagesStatus(datumString) {
     const hatTraining = saetzeDieserWoche.some(satz => satz.datum === datumString)
     const hatLauf = laeufeDieserWoche.some(lauf => lauf.datum === datumString)
+    const hatRadfahren = radfahrtenDieserWoche.some(fahrt => fahrt.datum === datumString)
     const istHeute = datumString === alsDatumString(new Date())
 
-    return { hatTraining, hatLauf, istHeute }
+    return { hatTraining, hatLauf, hatRadfahren, istHeute }
     }
 
     // Kurzes Kürzel für den Wochentag: "Mo", "Di", ...
@@ -187,6 +197,7 @@ function Statistik() {
                 <div className="tag-punkte">
                 {status.hatTraining && <span className="punkt orange"></span>}
                 {status.hatLauf && <span className="punkt gruen"></span>}
+                {status.hatRadfahren && <span className="punkt lila"></span>}
                 </div>
             </div>
             )
@@ -232,10 +243,24 @@ function Statistik() {
             {laeufeDieserWoche.length === 1 ? 'Lauf' : 'Läufe'}
           </div>
         </div>
+
+        <div className="kachel">
+          <div className="kachel-label">
+            <span className="kachel-dot lila"></span>
+            Radfahren
+          </div>
+          <div className="kachel-wert lila">
+            {formatiereKm(radKilometer)}<span className="einheit">km</span>
+          </div>
+          <div className="kachel-sub">
+            {radfahrtenDieserWoche.length}{' '}
+            {radfahrtenDieserWoche.length === 1 ? 'Radtour' : 'Radtouren'}
+          </div>
+        </div>
       </div>
 
       {/* Leerer Zustand, falls in der Woche nichts geloggt wurde */}
-      {saetzeDieserWoche.length === 0 && laeufeDieserWoche.length === 0 && (
+      {saetzeDieserWoche.length === 0 && laeufeDieserWoche.length === 0 && radfahrtenDieserWoche.length === 0 && (
         <div className="leer-hinweis">
           Keine Einträge in dieser Woche.
         </div>

@@ -13,12 +13,14 @@
 import { useState } from 'react'
 import SatzLogger from './SatzLogger'
 import LaufLogger from './LaufLogger'
+import Radfahren from './Radfahren'
 import './Sport.css'
 
 // Die verfügbaren Sportarten. Später einfach erweiterbar.
 const SPORTARTEN = [
   { id: 'gym', label: 'Gym' },
   { id: 'laufen', label: 'Laufen' },
+  { id: 'radfahren', label: 'Radfahren' },
 ]
 
 function Sport() {
@@ -46,6 +48,7 @@ function Sport() {
       <div className="sport-inhalt">
         {sport === 'gym' && <SatzLogger />}
         {sport === 'laufen' && <LaufLogger />}
+        {sport === 'radfahren' && <Radfahren />}
       </div>
 
     </div>
