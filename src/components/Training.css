@@ -1,0 +1,311 @@
+/* ============================================
+   TRAINING.CSS — neue Übersichts-Struktur
+   ============================================ */
+
+.training-seite {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 8px 16px 40px;
+}
+
+/* === ZURÜCK-BUTTON (Unteransichten) === */
+
+.zurueck-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-bottom: 12px;
+}
+
+.zurueck-btn:hover {
+  color: var(--accent-light);
+}
+
+/* === VORSCHAU-BLÖCKE === */
+
+.vorschau-block {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  border-top: 0.5px solid var(--glass-highlight);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+.vorschau-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.vorschau-titel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.vorschau-link {
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.vorschau-link:hover {
+  color: var(--accent-light);
+}
+
+.vorschau-link.block {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0 2px;
+  font-size: 13px;
+}
+
+.vorschau-plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background: rgba(79, 124, 255, 0.12);
+  border: none;
+  border-radius: 8px;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.vorschau-leer {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 8px 0;
+}
+
+/* === WOCHENTAG-PILLEN === */
+
+.wochentag-pillen {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.wochentag-pille {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 9px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.wochentag-pille.geplant {
+  background: rgba(79, 124, 255, 0.15);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.wochentag-pille.heute {
+  border-color: var(--accent);
+}
+
+.plan-zeile-text {
+  font-size: 12px;
+  color: var(--text-subtle);
+  text-align: center;
+}
+
+.plan-zeile-text.leer {
+  color: var(--text-muted);
+}
+
+/* === KOMPAKTE ZEILEN (Vorlagen-Vorschau) === */
+
+.kompakt-zeile {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 4px;
+  background: transparent;
+  border: none;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  text-align: left;
+}
+
+.kompakt-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: rgba(79, 124, 255, 0.1);
+  border-radius: 8px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.kompakt-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.kompakt-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.kompakt-detail {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.kompakt-pfeil {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* === STATISTIK-VORSCHAU === */
+
+.statistik-vorschau-reihe {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.statistik-balken-bereich {
+  flex: 1;
+  min-width: 0;
+}
+
+.statistik-balken-label {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.statistik-balken {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.statistik-balken-fuellung {
+  height: 100%;
+  background: linear-gradient(90deg, var(--success), #6ee7b7);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.statistik-pr {
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.statistik-pr-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-bottom: 3px;
+}
+
+.statistik-pr-wert {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--warning);
+  white-space: nowrap;
+}
+
+/* === VERLAUF-VORSCHAU === */
+
+.verlauf-vorschau-zeile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 4px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.05);
+}
+
+.verlauf-vorschau-check {
+  color: var(--success);
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.verlauf-vorschau-icon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.verlauf-vorschau-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  min-width: 0;
+  gap: 8px;
+}
+
+.verlauf-vorschau-titel {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.verlauf-vorschau-datum {
+  font-size: 11px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* === FREIES TRAINING LINK === */
+
+.frei-link {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 16px 0 8px;
+  text-align: center;
+}
+
+.frei-link:hover {
+  color: var(--text-subtle);
+}

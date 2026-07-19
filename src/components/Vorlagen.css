@@ -1,0 +1,323 @@
+/* ============================================
+   VORLAGEN.CSS
+   ============================================ */
+
+.vorlagen {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 8px 16px 40px;
+}
+
+.section {
+  margin-top: 20px;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 10px;
+}
+
+/* === GRUND-KARTE === */
+
+.karte {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  border-top: 0.5px solid var(--glass-highlight);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+/* === EINGABEFELDER === */
+
+.eingabe-reihe {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.eingabe-feld {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+  min-width: 0;
+}
+
+.eingabe-reihe .eingabe-feld {
+  margin-bottom: 0;
+}
+
+.eingabe-feld label {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.eingabe-feld input,
+.auswahl {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.eingabe-feld input:focus,
+.auswahl:focus {
+  border-color: var(--accent);
+}
+
+.auswahl {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2364748b' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.auswahl option {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.eingabe-feld input[type="number"]::-webkit-inner-spin-button,
+.eingabe-feld input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* === BUTTONS === */
+
+.hinzufuegen-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px;
+  background: rgba(79, 124, 255, 0.1);
+  border: 0.5px solid rgba(79, 124, 255, 0.3);
+  border-radius: 10px;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.hinzufuegen-btn:hover {
+  background: rgba(79, 124, 255, 0.16);
+}
+
+.aktionen-reihe {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.abbrechen-btn {
+  flex: 1;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.speichern-btn {
+  flex: 2;
+  padding: 14px;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.speichern-btn:hover {
+  background: var(--accent-light);
+}
+
+/* === ENTWURF-LISTE (beim Erstellen) === */
+
+.entwurf-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.entwurf-zeile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--glass-bg);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 12px;
+}
+
+.entwurf-info {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  min-width: 0;
+}
+
+.entwurf-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.entwurf-ziel {
+  font-size: 13px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-left: 10px;
+}
+
+.entfernen-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #334155;
+  font-size: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.entfernen-btn:hover {
+  color: var(--danger);
+}
+
+/* === LEERER ZUSTAND === */
+
+.leer-zustand {
+  text-align: center;
+  padding: 48px 20px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.leer-icon {
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.leer-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-subtle);
+  margin-bottom: 4px;
+}
+
+.leer-untertext {
+  font-size: 12px;
+  color: var(--text-muted);
+  max-width: 240px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* === VORLAGEN-LISTE === */
+
+.vorlagen-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.vorlage-karte {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  border-top: 0.5px solid var(--glass-highlight);
+  border-radius: 16px;
+  padding: 16px 18px;
+}
+
+.vorlage-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.vorlage-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.vorlage-uebungen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.vorlage-uebung-chip {
+  font-size: 11px;
+  color: var(--text-subtle);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+/* === NEUE VORLAGE BUTTON === */
+
+.neu-vorlage-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.neu-vorlage-btn:hover {
+  background: var(--accent-light);
+}

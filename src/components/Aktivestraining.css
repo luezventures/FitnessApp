@@ -1,0 +1,303 @@
+/* ============================================
+   AKTIVESTRAINING.CSS
+   ============================================ */
+
+.aktives-training {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 8px 16px 40px;
+}
+
+/* === KOPF === */
+
+.training-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.kopf-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.kopf-fortschritt {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.fertig-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  background: var(--glass-bg);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 10px;
+  color: var(--text-subtle);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.fertig-btn:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+/* === GESAMT-FORTSCHRITTSBALKEN === */
+
+.gesamt-balken {
+  width: 100%;
+  height: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.gesamt-balken-fuellung {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+/* === ÜBUNGSLISTE === */
+
+.uebungen-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.uebung-kopf-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--glass-bg);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+}
+
+.uebung-kopf-btn:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.uebung-kopf-btn.aktiv {
+  border-color: var(--accent);
+  background: rgba(79, 124, 255, 0.08);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.uebung-kopf-btn.fertig {
+  border-color: rgba(52, 211, 153, 0.3);
+}
+
+.uebung-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+}
+
+.uebung-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.uebung-ziel {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.uebung-status {
+  flex-shrink: 0;
+}
+
+.status-zahl {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.status-check {
+  color: var(--success);
+}
+
+/* === EINGABE-BEREICH (klappt auf) === */
+
+.eingabe-bereich {
+  padding: 10px 0 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  animation: aufklappen 0.2s ease-out;
+}
+
+@keyframes aufklappen {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.eingabe-karte {
+  background: var(--glass-bg);
+  border: 0.5px solid var(--glass-border);
+  border-top: none;
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  padding: 16px;
+}
+
+.eingabe-reihe {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.eingabe-feld {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.eingabe-feld label {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.eingabe-feld input {
+  width: 100%;
+  padding: 11px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 9px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+}
+
+.eingabe-feld input:focus {
+  border-color: var(--accent);
+}
+
+.eingabe-feld input[type="number"]::-webkit-inner-spin-button,
+.eingabe-feld input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.rpe-bereich {
+  margin-bottom: 14px;
+}
+
+.rpe-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.rpe-kopf label {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.rpe-wert {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.rpe-slider {
+  width: 100%;
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+.rpe-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: currentColor;
+  cursor: pointer;
+  border: 2px solid var(--bg-primary);
+}
+
+.satz-loggen-btn {
+  width: 100%;
+  padding: 13px;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.satz-loggen-btn:hover {
+  background: var(--accent-light);
+}
+
+/* === GELOGGTE SÄTZE === */
+
+.geloggte-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 2px;
+}
+
+.mini-satz {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+}
+
+.mini-nummer {
+  width: 16px;
+  font-size: 10px;
+  font-weight: 600;
+  color: #334155;
+  flex-shrink: 0;
+}
+
+.mini-werte {
+  flex: 1;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-subtle);
+}
+
+.mini-rpe {
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}

@@ -1,0 +1,160 @@
+/* ============================================
+   EINSTELLUNGEN.CSS
+   Enthält auch das MENU-ZEILE-Muster, das
+   Profil.css wiederverwendet.
+   ============================================ */
+
+.einstellungen {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 8px 16px 40px;
+}
+
+/* === ZURÜCK-BUTTON === */
+
+.zurueck-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-bottom: 12px;
+}
+
+.zurueck-btn:hover {
+  color: var(--accent-light);
+}
+
+/* === MENU-LISTE === */
+
+.menu-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.menu-zeile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--glass-bg);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.menu-zeile:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(79, 124, 255, 0.1);
+  border-radius: 9px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.menu-label {
+  flex: 1;
+}
+
+.menu-pfeil {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+/* === NEU: Auswahlfelder, Hinweistext, Account löschen === */
+
+.karte {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  border-top: 0.5px solid var(--glass-highlight);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.eingabe-feld {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.eingabe-feld label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.auswahl {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2364748b' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  padding-right: 36px;
+  cursor: pointer;
+}
+
+.auswahl option {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+.hinweis-text {
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-top: 4px;
+}
+
+.account-loeschen-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px;
+  background: rgba(248, 113, 113, 0.12);
+  border: 0.5px solid rgba(248, 113, 113, 0.3);
+  border-radius: 12px;
+  color: var(--danger);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 16px;
+}
+
+.account-loeschen-btn:hover {
+  background: rgba(248, 113, 113, 0.2);
+}

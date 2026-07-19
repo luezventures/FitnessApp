@@ -1,0 +1,29 @@
+/* ============================================
+   PLATZHALTER.CSS
+   ============================================ */
+
+.platzhalter {
+  text-align: center;
+  padding: 60px 24px;
+}
+
+.platzhalter-icon {
+  font-size: 28px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.platzhalter-titel {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-subtle);
+  margin-bottom: 6px;
+}
+
+.platzhalter-text {
+  font-size: 13px;
+  color: var(--text-muted);
+  max-width: 260px;
+  margin: 0 auto;
+  line-height: 1.5;
+}

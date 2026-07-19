@@ -9,7 +9,7 @@
 }
 
 .section {
-  margin-top: 20px;
+  margin-top: 28px;
 }
 
 .section-label {
@@ -21,9 +21,9 @@
   margin-bottom: 10px;
 }
 
-/* === EINGABE-KARTE === */
+/* === GRUND-KARTE === */
 
-.ernaehrung-karte {
+.karte {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
@@ -33,18 +33,167 @@
   padding: 20px;
 }
 
+.karte.hervorgehoben {
+  border: 1px solid rgba(79, 124, 255, 0.35);
+  border-top: 1px solid rgba(79, 124, 255, 0.5);
+  background: linear-gradient(
+    160deg,
+    rgba(79, 124, 255, 0.1) 0%,
+    rgba(79, 124, 255, 0.03) 100%
+  );
+}
+
+/* === RING === */
+
+.ring-karte {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 20px;
+}
+
+.ring-wrapper {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  margin-bottom: 20px;
+}
+
+.ring-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ring-hintergrund {
+  stroke: rgba(255, 255, 255, 0.06);
+}
+
+.ring-fuellung {
+  stroke: var(--accent);
+  transition: stroke-dashoffset 0.4s ease;
+}
+
+.ring-mitte {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ring-zahl {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.ring-ziel {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* === MAKRO-BALKEN === */
+
+.makro-balken-liste {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.makro-balken-zeile {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.makro-balken-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.makro-balken-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.makro-balken-label.carbs { color: var(--warning); }
+.makro-balken-label.protein { color: var(--success); }
+.makro-balken-label.fett { color: var(--accent); }
+
+.makro-balken-wert {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.makro-balken {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.makro-balken-fuellung {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.makro-balken-fuellung.carbs { background: var(--warning); }
+.makro-balken-fuellung.protein { background: var(--success); }
+.makro-balken-fuellung.fett { background: var(--accent); }
+
+/* === ZIEL BEARBEITEN === */
+
+.ziel-bearbeiten-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 4px 8px;
+}
+
+.ziel-bearbeiten-btn:hover {
+  color: var(--text-subtle);
+}
+
+.ziel-formular {
+  width: 100%;
+  margin-top: 14px;
+  padding-top: 16px;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+}
+
+/* === EINGABEFELDER (geteilt) === */
+
 .eingabe-reihe {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
 .eingabe-feld {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   min-width: 0;
 }
 
@@ -88,13 +237,13 @@
 
 .speichern-btn {
   width: 100%;
-  padding: 16px;
+  padding: 14px;
   background: var(--accent);
   border: none;
   border-radius: 12px;
   color: white;
   font-family: inherit;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
   transition: background 0.15s;
@@ -102,64 +251,6 @@
 
 .speichern-btn:hover {
   background: var(--accent-light);
-}
-
-.speichern-btn:active {
-  transform: scale(0.98);
-}
-
-/* === TAGESSUMME === */
-
-.summe-karte {
-  margin-top: 16px;
-  padding: 20px;
-  background: rgba(79, 124, 255, 0.06);
-  border: 0.5px solid rgba(79, 124, 255, 0.2);
-  border-radius: 16px;
-  text-align: center;
-}
-
-.summe-kalorien {
-  font-size: 28px;
-  font-weight: 700;
-  color: var(--text-primary);
-  letter-spacing: -0.5px;
-  margin-bottom: 16px;
-}
-
-.summe-kalorien .einheit {
-  font-size: 13px;
-  font-weight: 400;
-  color: var(--text-muted);
-}
-
-.summe-makros {
-  display: flex;
-  justify-content: center;
-  gap: 28px;
-}
-
-.makro {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-
-.makro-wert {
-  font-size: 16px;
-  font-weight: 700;
-}
-
-.makro-wert.carbs { color: var(--warning); }
-.makro-wert.protein { color: var(--success); }
-.makro-wert.fett { color: var(--accent); }
-
-.makro-label {
-  font-size: 10px;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.4px;
 }
 
 /* === EINTRÄGE-LISTE === */

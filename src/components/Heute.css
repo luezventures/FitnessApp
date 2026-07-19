@@ -1,0 +1,88 @@
+/* ============================================
+   HEUTE.CSS
+   ============================================ */
+
+.heute {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 8px 16px 40px;
+}
+
+.heute-karte {
+  text-align: center;
+  padding: 28px 20px;
+  border-radius: 16px;
+}
+
+.heute-karte.hervorgehoben {
+  background: linear-gradient(
+    160deg,
+    rgba(79, 124, 255, 0.1) 0%,
+    rgba(79, 124, 255, 0.03) 100%
+  );
+  border: 1px solid rgba(79, 124, 255, 0.35);
+  border-top: 1px solid rgba(79, 124, 255, 0.5);
+}
+
+.heute-karte.ruhe {
+  background: rgba(52, 211, 153, 0.05);
+  border: 1px dashed rgba(52, 211, 153, 0.25);
+}
+
+.heute-karte.leer {
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.heute-icon {
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.heute-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.heute-vorlage-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.heute-detail {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.heute-karte.ruhe .heute-detail,
+.heute-karte.leer .heute-detail {
+  margin-bottom: 0;
+}
+
+.starten-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.starten-btn:hover {
+  background: var(--accent-light);
+}

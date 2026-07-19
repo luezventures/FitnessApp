@@ -1,0 +1,109 @@
+/* ============================================
+   TRAININGSPLAN.CSS
+   ============================================ */
+
+.trainingsplan {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 8px 16px 40px;
+}
+
+/* === TAGE-LISTE === */
+
+.tage-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tag-zeile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  border-top: 0.5px solid var(--glass-highlight);
+  border-radius: 14px;
+}
+
+.tag-info {
+  min-width: 0;
+}
+
+.tag-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.tag-detail {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* === TAG-AUSWAHL (Dropdown) === */
+
+.tag-auswahl {
+  flex-shrink: 0;
+  padding: 10px 32px 10px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%2364748b' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  max-width: 140px;
+}
+
+.tag-auswahl:focus {
+  border-color: var(--accent);
+}
+
+.tag-auswahl option {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+}
+
+/* === LEERER ZUSTAND === */
+
+.leer-zustand {
+  text-align: center;
+  padding: 48px 20px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+}
+
+.leer-icon {
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.leer-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-subtle);
+  margin-bottom: 4px;
+}
+
+.leer-untertext {
+  font-size: 12px;
+  color: var(--text-muted);
+  max-width: 260px;
+  margin: 0 auto;
+  line-height: 1.5;
+}

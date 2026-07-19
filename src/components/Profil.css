@@ -1,9 +1,288 @@
 /* ============================================
-   PROFIL.CSS
+   PROFIL.CSS — neue Übersichts-Struktur
    ============================================ */
 
 .profil {
   max-width: 500px;
   margin: 0 auto;
   padding: 8px 16px 40px;
+}
+
+.zurueck-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-bottom: 12px;
+}
+
+.zurueck-btn:hover {
+  color: var(--accent-light);
+}
+
+/* === PROFIL-KOPF === */
+
+.profil-kopf {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding: 4px 4px 16px;
+}
+
+.avatar {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.profil-kopf-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.profil-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.profil-seit {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.name-bearbeiten {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.name-bearbeiten input {
+  padding: 6px 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid var(--accent);
+  border-radius: 8px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+.name-bearbeiten button {
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+/* === VORSCHAU-BLÖCKE === */
+
+.vorschau-block {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  border-top: 0.5px solid var(--glass-highlight);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+.vorschau-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.vorschau-titel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.vorschau-link {
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.vorschau-link:hover {
+  color: var(--accent-light);
+}
+
+/* === GEWICHT-VORSCHAU === */
+
+.gewicht-wert {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+
+.gewicht-einheit {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.gewicht-veraenderung {
+  font-size: 12px;
+  color: var(--success);
+  font-weight: 500;
+  margin-bottom: 14px;
+}
+
+.gewicht-eintragen-btn {
+  width: 100%;
+  padding: 13px;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.gewicht-eintragen-btn:hover {
+  background: var(--accent-light);
+}
+
+/* === FOTOS-VORSCHAU === */
+
+.fotos-vorschau-reihe {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.foto-vorschau-kachel {
+  aspect-ratio: 1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid var(--glass-border);
+}
+
+.foto-vorschau-kachel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.foto-vorschau-kachel.leer {
+  border-style: dashed;
+}
+
+.foto-vorschau-kachel.plus {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 20px;
+  cursor: pointer;
+  border-style: dashed;
+  border-color: rgba(79, 124, 255, 0.4);
+}
+
+/* === ZIELE & ERFOLGE VORSCHAU === */
+
+.erfolge-reihe {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.erfolge-punkt {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-subtle);
+}
+
+.erfolge-punkt-icon {
+  color: var(--warning);
+}
+
+/* === MENU-LISTE === */
+
+.menu-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.menu-zeile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--glass-bg);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.menu-zeile:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.menu-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(79, 124, 255, 0.1);
+  border-radius: 9px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.menu-label {
+  flex: 1;
+}
+
+.menu-pfeil {
+  color: var(--text-muted);
+  flex-shrink: 0;
 }

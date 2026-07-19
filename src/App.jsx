@@ -1,16 +1,26 @@
 /* ============================================
-   APP.JSX — Rahmen mit Navigation
+   APP.JSX
    
-   Navigation: Start · Sport · Statistik · Profil
+   NEU: Der Header zeigt "Do it anyway." nur noch
+   auf Start. Auf den anderen Reitern steht
+   stattdessen der Name der Seite — passend zu
+   deinen Wireframes (Training-Screen, Ernährung-
+   Screen zeigen jeweils ihren eigenen Titel).
    ============================================ */
 
 import { useState } from 'react'
-import { House, Dumbbell, ChartColumn, User } from 'lucide-react'
+import { House, Dumbbell, Utensils, User } from 'lucide-react'
 import Home from './components/Home'
-import Sport from './components/Sport'
-import Statistik from './components/Statistik'
+import Training from './components/Training'
+import Ernaehrung from './components/Ernaehrung'
 import Profil from './components/Profil'
 import './App.css'
+
+const SEITEN_TITEL = {
+  training: 'Training',
+  ernaehrung: 'Ernährung',
+  profil: 'Profil',
+}
 
 function App() {
 
@@ -26,16 +36,20 @@ function App() {
     <div className="app">
 
       <header className="app-header">
-        <h1 className="claim">
-          Do it anyway<span className="claim-dot">.</span>
-        </h1>
+        {seite === 'home' ? (
+          <h1 className="claim">
+            Do it anyway<span className="claim-dot">.</span>
+          </h1>
+        ) : (
+          <h1 className="seiten-titel">{SEITEN_TITEL[seite]}</h1>
+        )}
         <p className="datum">{heute}</p>
       </header>
 
       <main className="app-main">
-        {seite === 'home' && <Home />}
-        {seite === 'sport' && <Sport />}
-        {seite === 'statistik' && <Statistik />}
+        {seite === 'home' && <Home zuTraining={() => setSeite('training')} />}
+        {seite === 'training' && <Training />}
+        {seite === 'ernaehrung' && <Ernaehrung />}
         {seite === 'profil' && <Profil />}
       </main>
 
@@ -49,19 +63,19 @@ function App() {
         </button>
 
         <button
-          className={`nav-btn ${seite === 'sport' ? 'aktiv' : ''}`}
-          onClick={() => setSeite('sport')}
+          className={`nav-btn ${seite === 'training' ? 'aktiv' : ''}`}
+          onClick={() => setSeite('training')}
         >
           <span className="nav-icon"><Dumbbell size={20} /></span>
-          <span className="nav-label">Sport</span>
+          <span className="nav-label">Training</span>
         </button>
 
         <button
-          className={`nav-btn ${seite === 'statistik' ? 'aktiv' : ''}`}
-          onClick={() => setSeite('statistik')}
+          className={`nav-btn ${seite === 'ernaehrung' ? 'aktiv' : ''}`}
+          onClick={() => setSeite('ernaehrung')}
         >
-          <span className="nav-icon"><ChartColumn size={20} /></span>
-          <span className="nav-label">Statistik</span>
+          <span className="nav-icon"><Utensils size={20} /></span>
+          <span className="nav-label">Ernährung</span>
         </button>
 
         <button

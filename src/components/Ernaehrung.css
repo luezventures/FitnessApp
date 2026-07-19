@@ -1,0 +1,401 @@
+/* ============================================
+   ERNAEHRUNG.CSS — neue Übersichts-Struktur
+   ============================================ */
+
+.ernaehrung-seite {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 8px 16px 40px;
+}
+
+.zurueck-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 0;
+  margin-bottom: 12px;
+}
+
+.zurueck-btn:hover {
+  color: var(--accent-light);
+}
+
+/* === 2x2 KACHELN === */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.stat-kachel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  border-top: 0.5px solid var(--glass-highlight);
+  border-radius: 16px;
+  padding: 16px 18px;
+  min-width: 0;
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.stat-wert {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.stat-wert.amber { color: var(--warning); }
+.stat-wert.blau { color: var(--accent); }
+.stat-wert.gruen { color: var(--success); }
+.stat-wert.pink { color: var(--pink); }
+
+.stat-ziel {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.stat-balken {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.stat-balken-fuellung {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.stat-balken-fuellung.amber { background: var(--warning); }
+.stat-balken-fuellung.blau { background: var(--accent); }
+.stat-balken-fuellung.gruen { background: var(--success); }
+.stat-balken-fuellung.pink { background: var(--pink); }
+
+/* === MAHLZEIT HINZUFÜGEN BUTTON === */
+
+.mahlzeit-hinzufuegen-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background 0.15s;
+}
+
+.mahlzeit-hinzufuegen-btn:hover {
+  background: var(--accent-light);
+}
+
+/* === VORSCHAU-BLÖCKE === */
+
+.vorschau-block {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  border-top: 0.5px solid var(--glass-highlight);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 12px;
+}
+
+.vorschau-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.vorschau-titel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.vorschau-link {
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.vorschau-link:hover {
+  color: var(--accent-light);
+}
+
+.vorschau-leer {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 8px 0;
+}
+
+/* === KOMPAKTE INFO-ZEILE (Heute geloggt Vorschau) === */
+
+.kompakt-info-zeile {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.05);
+}
+
+.kompakt-info-titel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.kompakt-info-detail {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-align: right;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* === KOMPAKTE ZEILE (Mahlzeiten Vorschau) === */
+
+.kompakt-zeile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-top: 0.5px solid rgba(255, 255, 255, 0.05);
+}
+
+.kompakt-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.kompakt-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.kompakt-detail {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.quick-log-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background: rgba(79, 124, 255, 0.12);
+  border: none;
+  border-radius: 9px;
+  color: var(--accent);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.quick-log-btn:hover {
+  background: rgba(79, 124, 255, 0.2);
+}
+
+/* === ZIELE-ZEILE === */
+
+.ziele-zeile {
+  font-size: 12px;
+  color: var(--text-subtle);
+  text-align: center;
+}
+
+/* === GETEILTE EINGABE-STYLES (Unteransichten) === */
+
+.karte {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  border-top: 0.5px solid var(--glass-highlight);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.eingabe-reihe {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.eingabe-feld {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+  min-width: 0;
+}
+
+.eingabe-reihe .eingabe-feld {
+  margin-bottom: 0;
+}
+
+.eingabe-feld label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.eingabe-feld input {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+}
+
+.eingabe-feld input:focus {
+  border-color: var(--accent);
+}
+
+.eingabe-feld input[type="number"]::-webkit-inner-spin-button,
+.eingabe-feld input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.speichern-btn {
+  width: 100%;
+  padding: 14px;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.speichern-btn:hover {
+  background: var(--accent-light);
+}
+
+/* === VOLLE EINTRÄGE-LISTE (Heute geloggt, voll) === */
+
+.leer-zustand {
+  text-align: center;
+  padding: 40px 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.eintraege-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.eintrag-zeile {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px;
+  background: var(--glass-bg);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 12px;
+}
+
+.eintrag-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.eintrag-haupt {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 3px;
+}
+
+.eintrag-kategorie {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.eintrag-kalorien {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.eintrag-notiz {
+  font-size: 12px;
+  color: var(--text-subtle);
+  margin-bottom: 4px;
+}
+
+.eintrag-makros {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.loeschen-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #334155;
+  font-size: 20px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.loeschen-btn:hover {
+  color: var(--danger);
+}

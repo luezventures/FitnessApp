@@ -1,0 +1,253 @@
+/* ============================================
+   GESPEICHERTEMAHLZEITEN.CSS
+   ============================================ */
+
+.mahlzeiten {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 8px 16px 40px;
+}
+
+.karte {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  border-top: 0.5px solid var(--glass-highlight);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.eingabe-reihe {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.eingabe-feld {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+  min-width: 0;
+}
+
+.eingabe-reihe .eingabe-feld {
+  margin-bottom: 0;
+}
+
+.eingabe-feld label {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.eingabe-feld input {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 10px;
+  color: var(--text-primary);
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+}
+
+.eingabe-feld input:focus {
+  border-color: var(--accent);
+}
+
+.eingabe-feld input[type="number"]::-webkit-inner-spin-button,
+.eingabe-feld input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.aktionen-reihe {
+  display: flex;
+  gap: 10px;
+}
+
+.abbrechen-btn {
+  flex: 1;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 12px;
+  color: var(--text-muted);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.speichern-btn {
+  flex: 2;
+  padding: 14px;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.speichern-btn:hover {
+  background: var(--accent-light);
+}
+
+/* === LEERER ZUSTAND === */
+
+.leer-zustand {
+  text-align: center;
+  padding: 48px 20px;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.leer-icon {
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.leer-text {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-subtle);
+  margin-bottom: 4px;
+}
+
+.leer-untertext {
+  font-size: 12px;
+  color: var(--text-muted);
+  max-width: 260px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* === MAHLZEITEN-LISTE === */
+
+.mahlzeiten-liste {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.mahlzeit-karte {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+}
+
+.mahlzeit-hauptbereich {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--glass-bg);
+  border: 0.5px solid var(--glass-border);
+  border-radius: 14px;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s;
+  min-width: 0;
+}
+
+.mahlzeit-hauptbereich:hover {
+  border-color: rgba(79, 124, 255, 0.4);
+}
+
+.mahlzeit-hauptbereich:active {
+  transform: scale(0.98);
+}
+
+.mahlzeit-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.mahlzeit-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.mahlzeit-makros {
+  font-size: 11px;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.mahlzeit-log-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background: rgba(79, 124, 255, 0.12);
+  border-radius: 9px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.geloggt-feedback {
+  color: var(--success);
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.mahlzeit-loeschen {
+  width: 32px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  color: #334155;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.mahlzeit-loeschen:hover {
+  color: var(--danger);
+}
+
+/* === NEUE MAHLZEIT BUTTON === */
+
+.neu-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.neu-btn:hover {
+  background: var(--accent-light);
+}

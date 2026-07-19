@@ -1,0 +1,265 @@
+/* ============================================
+   DASHBOARD.CSS
+   ============================================ */
+
+.dashboard {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 8px 16px 40px;
+}
+
+/* === 2x2 KACHELN === */
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.stat-kachel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  border-top: 0.5px solid var(--glass-highlight);
+  border-radius: 16px;
+  padding: 16px 18px;
+  min-width: 0;
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.stat-wert {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.5px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.stat-wert.gruen { color: var(--success); }
+.stat-wert.amber { color: var(--warning); }
+
+.stat-ziel {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.stat-ziel-klein {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-left: 2px;
+}
+
+.stat-sub {
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.stat-sub.gruen { color: var(--success); }
+
+.stat-balken {
+  width: 100%;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.stat-balken-fuellung {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+.stat-balken-fuellung.blau { background: linear-gradient(90deg, var(--accent), var(--accent-light)); }
+.stat-balken-fuellung.gruen { background: linear-gradient(90deg, var(--success), #6ee7b7); }
+.stat-balken-fuellung.amber { background: linear-gradient(90deg, var(--warning), #fcd34d); }
+
+/* === HEUTE-ABSCHNITT === */
+
+.heute-abschnitt {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 0.5px solid var(--glass-border);
+  border-top: 0.5px solid var(--glass-highlight);
+  border-radius: 16px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+.heute-kopf {
+  margin-bottom: 12px;
+}
+
+.heute-titel {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.heute-leer {
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+  padding: 12px 0;
+}
+
+.heute-zeile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 0.5px solid rgba(255, 255, 255, 0.05);
+}
+
+.heute-zeile:last-of-type {
+  border-bottom: none;
+}
+
+.heute-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  background: rgba(79, 124, 255, 0.12);
+  border-radius: 10px;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.heute-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.heute-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.heute-detail {
+  font-size: 11px;
+  color: var(--text-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.heute-check {
+  color: var(--success);
+  font-weight: 700;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.heute-zeit {
+  font-size: 12px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.training-starten-btn {
+  width: 100%;
+  margin-top: 12px;
+  padding: 14px;
+  background: var(--accent);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.training-starten-btn:hover {
+  background: var(--accent-light);
+}
+
+/* === STREAK / PR === */
+
+.motivation-karte {
+  background: rgba(251, 191, 36, 0.06);
+  border: 0.5px solid rgba(251, 191, 36, 0.2);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.streak-zeile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.streak-icon {
+  color: var(--warning);
+}
+
+.pr-zeile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 6px;
+}
+
+.pr-icon {
+  color: var(--warning);
+  flex-shrink: 0;
+}
+
+/* === MAKRO-MINI-REIHE === */
+
+.makro-reihe {
+  display: flex;
+  justify-content: space-around;
+  padding: 4px 0;
+}
+
+.makro-mini {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.makro-mini-wert {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.makro-mini-wert.protein { color: var(--success); }
+.makro-mini-wert.carbs { color: var(--warning); }
+.makro-mini-wert.fett { color: var(--accent); }
+
+.makro-mini-label {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
